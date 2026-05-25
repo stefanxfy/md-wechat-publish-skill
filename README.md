@@ -1,4 +1,4 @@
-# myskills
+# md-wechat-publish-skill
 
 QClaw Skill 工具集，包含多个自动化技能，专注 AI 工程内容的创作与发布工作流。
 
