@@ -51,14 +51,7 @@ description: |
 4. 如果找不到，报错并提示用户
 
 **示例**：
-```
-假设本 skill 安装在：
-  /home/user/.skills/md-wechat-publish-skill/SKILL.md
-
-那么依赖 skill 应该在：
-  /home/user/.skills/md-mermaid2img-skill/
-  /home/user/.skills/jimeng-image-gen/
-```
+本 skill 的依赖（md-mermaid2img-skill、jimeng-image-gen）应放在同一父目录下。
 
 ### 检查脚本（AI 执行）
 
