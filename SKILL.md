@@ -16,12 +16,12 @@ description: |
 
 **设计原则**：
 1. 描述"做什么"，而非"怎么做"
-2. 使用相对路径发现机制（不绑死 QClaw）
+2. 使用相对路径发现机制（不绑死特定 Agent）
 3. 定义清晰的输入输出接口和成功/失败标准
 4. 完整的错误处理和可恢复机制
 
 **可移植性**：
-- ✅ QClaw：AI 读取本 SKILL.md，调用对应 skill
+- ✅ Claude Code / Hermes 等：AI 读取本 SKILL.md，调用对应 skill
 - ✅ Claude Code：AI 读取本 SKILL.md，调用等效 skill
 - ✅ Hermes：AI 读取本 SKILL.md，调用等效 skill
 - ✅ 任何有 skill 系统的 agent 都能运行
@@ -53,11 +53,11 @@ description: |
 **示例**：
 ```
 假设本 skill 安装在：
-  /home/user/.qclaw/skills/md-wechat-publish-skill/SKILL.md
+  /home/user/.skills/md-wechat-publish-skill/SKILL.md
 
 那么依赖 skill 应该在：
-  /home/user/.qclaw/skills/md-mermaid2img-skill/
-  /home/user/.qclaw/skills/jimeng-image-gen/
+  /home/user/.skills/md-mermaid2img-skill/
+  /home/user/.skills/jimeng-image-gen/
 ```
 
 ### 检查脚本（AI 执行）
@@ -443,7 +443,7 @@ has_frontmatter = bool(re.match(r'^---\s*\n', content))
 
 将完善后的内容写回文件。
 
-**注意**：使用 `qclaw-text-file` skill 的 `scripts/write_file.py` 脚本写入，避免编码问题。
+**注意**：使用写文件工具写入，避免编码问题。
 
 ### 输出
 
@@ -665,7 +665,6 @@ Draft URL: https://mp.weixin.qq.com/...
 
 | Agent | 调用方式 |
 |-------|----------|
-| **QClaw** | AI 读取本 SKILL.md，调用对应 skill |
 | **Claude Code** | AI 读取本 SKILL.md，调用等效 skill |
 | **Hermes** | AI 读取本 SKILL.md，调用等效 skill |
 | **其他 agent** | AI 读取本 SKILL.md，根据环境决定如何调用 |
@@ -729,7 +728,7 @@ Draft URL: https://mp.weixin.qq.com/...
 ## 版本历史
 
 - **v2.0** (2026-05-25): 重构为纯 Skill 驱动架构，可移植到任何 agent 环境
-- **v1.0** (2026-05-25): 初始版本（脚本驱动，绑死 QClaw）
+- **v1.0** (2026-05-25): 初始版本（脚本驱动，路径固定）
 
 ---
 
